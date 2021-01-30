@@ -1,9 +1,11 @@
 <template>
-  <div id="app" style="width:100%;height:100%">
+  <div id="app" style="width:100%;height:100%;">
     <img alt="Vue logo" src="./assets/logo.png" />
     <div style="text-align:left;width:100%;height:70%;">
-      <div style="width:35%;height:100%;border: 1px solid gray;float:left"></div>
-      <div style="float:left;border: 1px solid gray;width:60%;height:100%"><json-viewer :value="jsonData"></json-viewer></div>
+      <div style="width:35%;height:100%;border: 1px solid gray;float:left;margin-left:3%">
+        <textarea style="width:100%;height:100%" v-model="mytext"></textarea>
+      </div>
+      <div style="float:right;border: 1px solid gray;width:60%;height:100%"><json-viewer :value="myjson"></json-viewer></div>
     </div>
   </div>
 </template>
@@ -19,7 +21,7 @@ export default {
   },
   data() {
     return {
-      jsonData: {
+      mytext: JSON.stringify({
         id: '5968fcad629fa84ab65a5247',
         firstname: 'Ada',
         lastname: 'Lovelace',
@@ -36,8 +38,13 @@ export default {
         As a result, she is sometimes regarded as the first to recognise the full potential of a "computing machine" and the first computer programmer.`,
         bornAt: '1815-12-10T00:00:00.000Z',
         diedAt: '1852-11-27T00:00:00.000Z'
-      }
+      })
     };
+  },
+  computed: {
+    myjson: function () {
+      return JSON.parse(this.mytext)
+    }
   }
 };
 </script>
