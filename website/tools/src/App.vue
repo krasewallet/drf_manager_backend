@@ -5,7 +5,7 @@
       <div style="width:35%;height:100%;border: 1px solid gray;float:left;margin-left:3%">
         <textarea style="width:100%;height:100%" v-model="mytext"></textarea>
       </div>
-      <div style="float:right;border: 1px solid gray;width:60%;height:100%"><json-viewer :value="myjson"></json-viewer></div>
+      <div style="float:right;border: 1px solid gray;width:60%;height:100%"><json-viewer :value="myjson" :expand-depth=5></json-viewer></div>
     </div>
   </div>
 </template>
